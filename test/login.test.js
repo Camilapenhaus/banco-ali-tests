@@ -1,10 +1,11 @@
 import { expect } from 'chai'
 import request from 'supertest'
+import 'dotenv/config'
 
 describe('Login', () => {
   describe('POST /login', () => {
     it('deve retornar 200 e um token como texto com credenciais válidas', async () => {
-      const resposta = await request('http://localhost:3000')
+      const resposta = await request(process.env.BASE_URL)
         .post('/login')
         .set('Content-Type', 'application/json')
         .send({
