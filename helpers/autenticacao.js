@@ -1,5 +1,6 @@
-import request from 'supertest'
-import 'dotenv/config'
+const request = require('supertest')
+require('dotenv').config()
+
 
 const obterToken = async (usuario, senha) => {
     const respostaLogin = await request(process.env.BASE_URL)
@@ -13,5 +14,5 @@ const obterToken = async (usuario, senha) => {
 return respostaLogin.body.token
  
     }
-export { obterToken }
+module.exports = { obterToken }
 
